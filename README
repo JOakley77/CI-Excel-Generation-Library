@@ -1,0 +1,39 @@
+Codeigniter Excel Library
+
+Original inspiration for this library from http://codeigniter.com/wiki/Excel_Plugin
+
+What it does:
+Takes an active record result or a data array and creates an excel spreadsheet. Also, it's capable of passing custom titles and filename. Nothing super special but it gets the job done!
+
+Instructions:
+Just drop it in your libraries folder.
+
+To create from database result
+
+<?php
+public function export() {
+	$this->load->library('excel');
+
+	$sql = $this->db->get('dbtable');
+
+	$this->excel->filename = 'abc123';
+	$this->excel->make_from_db($sql);
+}
+?>
+
+To Create from a custom array
+
+<?php
+public function export() {
+	$titles = array('
+		'field1', 'field2', 'field3'
+	');
+	$array = array();
+	for ($i = 0; $i <= 100; $i++) {
+		$array[] = array($i, $i+1, $i+2);
+	}
+	$this->excel->make_from_array($titles, $array);
+}
+?>
+
+
