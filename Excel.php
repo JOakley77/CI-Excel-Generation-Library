@@ -4,10 +4,6 @@ class Excel {
 
 	public $filename 		= 'excel-doc';
 	public $custom_titles;
-	
-	public function __construct() {
-		//$this->CI =& get_instance();
-	}
 
 	public function make_from_db($db_results) {
 		$data 		= NULL;
